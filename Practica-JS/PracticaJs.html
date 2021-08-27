@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="practicaJs.css">
+    <title>Document</title>
+</head>
+<body>
+    <!--Desarrolle una función que le permita leer dos valores A y B e indicar si la suma de
+los dos números es par o impar-->
+        
+<div class="contenedor">
+   
+
+    <form action="" class="formulario1">
+        <h1>Ejercicio 1</h1>
+        <p>N1</p>
+        <input id="N1" type="text">
+
+        <p>N2</p>
+        <input id="N2" type="text"> <br>
+
+        <p>N3</p>
+        <input id="N3" type="text"> <br>
+
+        <br>
+
+        <input type="button" class="btn" onclick="Comparar()" value="ejercicio 1"> <br> <br>
+        <br>
+        <input type="text" id="respuesta" class="respuesta">
+    </form>
+    
+    <form action="" class="formulario2">
+        <h1>Ejercicio 2</h1>
+        <p>Grados</p>
+        <input id="numero" type="text">
+
+        <input type="button" class="btn" onclick="grados()" value="ejercicio 2"> <br> <br>
+       
+        <input type="text" id="respuesta1" class="respuesta">
+
+    </form>
+
+    
+
+    <form action="" class="formulario3">
+        <h1>Ejercicio 3</h1>
+        <p>N</p>
+        <input id="numero2" type="text">
+       
+        
+
+        <input type="button" class="btn" onclick="factorial()" value="ejercicio 3"> <br> <br>
+
+        <input type="text" id="respuesta2" class="respuesta">
+
+    </form>
+
+    <form action="" class="formulario4">
+       
+    </form>
+    <div class="fecha" id="fecha" >
+        <p id="diaSe"></p>
+        <p id="dia"></p>
+        <p >de</p>
+        <p id="mes"></p>
+        <p >del</p>
+        <p id="year"></p>
+    </div>
+
+</div>
+
+<script>
+    /* Desarrolle una función en JavaScript que permita leer 3
+        números y devuelva el producto de los tres números.*/
+    function Comparar(N1,N2,N3)
+        {
+            var N1=parseFloat(document.getElementById('N1').value);
+            var N2=parseFloat(document.getElementById('N2').value);
+            var N3=parseFloat(document.getElementById('N3').value);
+            var res=N1*N2*N3;
+            var resul1;
+            
+            document.getElementById('respuesta').value=res;
+            
+        }
+    /*Desarrolle una función en JavaScript que permita leer una
+    temperatura en grados Celsios y devuelva el clima según la
+    siguiente tabla:*/
+
+    function grados(numero)
+        {
+            var a=parseFloat(document.getElementById('numero').value);
+            var res=1;
+            var resul1;
+
+            if (a==-10 || a<=15)
+            {
+                resul1='Frio'
+            }
+            else{
+                if(a==16 || a<=25)
+                {
+                    resul1='Templado'
+                }
+                else
+                if(a==26 || a<=40)
+                {
+                    resul1='Calor'
+                }
+                else
+                {
+                    resul1='Muerte de calor  xd'
+                }
+            }
+            
+            document.getElementById('respuesta1').value=resul1;
+        }
+    /*Desarrolle una función en JavaScript que permita leer un
+    numero y devuelva el factorial del mismo.*/
+    function factorial(numero)
+        {
+            var a=parseFloat(document.getElementById('numero2').value);
+            var res=1;
+            var resul1;
+            for(var i=1; i<=a; i++)
+            {
+                res=res*i;
+            }
+            document.getElementById('respuesta2').value=res;
+        }
+
+    /*Desarrolle una función en JavaScript que muestre la fecha
+        actual*/
+
+        function actualizarDatos() {
+            //obtener datos
+            var fecha=new Date();
+               
+                diaSemana = fecha.getDay();
+                dia = fecha.getDate();
+                mes=fecha.getMonth()+1;
+                año=fecha.getFullYear();
+                
+    
+                //obtenemos elementos html
+                var 
+                    elementoDiaSemana = document.getElementById('diaSe'),
+                    elementoDia = document.getElementById('dia'),
+                    elementoMes = document.getElementById('mes'),
+                    elementoYear = document.getElementById('year');
+                    
+                    //poner en la pantalla
+                    /*elementoHoras.innerHTML=horas;
+                    elementoMinutos.innerHTML=minutos;
+                    elementoSegundos.innerHTML=segundos;*/
+                    elementoDia.innerHTML=dia;
+                    elementoMes.innerHTML=mes;
+                    /*Dias de la semana*/
+                    var arraySemana = ["Domingo","lunes","Martes","Miercoles","Juevez","Viernes","Sabado"];
+                    elementoDiaSemana.textContent=arraySemana[diaSemana]; //cambia el con
+
+                    /*El mes*/
+                    arrayMes = ["Enero","Febrero","Marzo","Abril","MAyo","junio","Julio","Agosto","Septiembre","octubre","Noviembre","Diciembre"];
+                    elementoMes.textContent = arrayMes[mes];
+                    elementoYear.innerHTML=año;
+
+                    
+                
+        }
+        
+        actualizarDatos();
+        
+        setInterval(actualizarDatos, 1000);
+
+</script>
+
+</body>
+</html>
